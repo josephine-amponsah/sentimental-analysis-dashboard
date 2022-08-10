@@ -1,7 +1,7 @@
 import random
 import pandas as pd
 import numpy as np
-import scipy 
+import scipy
 import matplotlib.pyplot as plt
 import seaborn as sns
 # boxplot to observe distribution
@@ -37,6 +37,10 @@ def permfunc(df, col, val):
     meanA = df.loc[idxA].mean()
     return  abs(meanA - meanB)
 
+#simulating permutation of
+def permdiff(data, cat, var, range):
+    for i in range:
+
 #plotting permutations against observed mean values
-def permPlot(permfunc):
-    sns.histplot()
+'''def permPlot(permfunc):
+    sns.histplot()'''
