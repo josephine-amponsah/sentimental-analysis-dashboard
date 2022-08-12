@@ -39,8 +39,15 @@ def permfunc(df, col, val):
 
 #simulating permutation of
 def permdiff(data, cat, var, range):
-    for i in range:
+    permdiffs = []
+    for _ in range:
+        permfunc(data, cat, var)
+        permdiffs.append()
+    return permdiffs
 
 #plotting permutations against observed mean values
-'''def permPlot(permfunc):
-    sns.histplot()'''
+def permPlot(diffs, catdiff):
+    diffs = pd.DataFrame(diffs)
+    sns.histplot(data = diffs,  bins = 10)
+    plt.vlines(x= catdiff, ymin = 0, ymax =250, colors='blue')
+    plt.plot()

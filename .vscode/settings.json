@@ -1,12 +1,18 @@
 {
     "cSpell.words": [
+        "anova",
         "boxplot",
+        "catdiff",
+        "histplot",
         "iloc",
         "matplotlib",
         "observeddiff",
+        "permdiff",
+        "permdiffs",
         "permfunc",
         "pyplot",
         "scipy",
-        "seaborn"
+        "seaborn",
+        "vlines"
     ]
 }
