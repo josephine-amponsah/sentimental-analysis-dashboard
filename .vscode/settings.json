@@ -3,6 +3,7 @@
         "anova",
         "boxplot",
         "catdiff",
+        "chisquare",
         "histplot",
         "iloc",
         "matplotlib",
