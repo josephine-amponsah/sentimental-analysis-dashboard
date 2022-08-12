@@ -11,9 +11,10 @@ import random
     #return  sum(data[col1])/ sum(data[col2])
 
 #def rValue ():
-def chi2(observed, expected):
-    pearson_residuals = [[(observe - expect) ** 2 / expect
-    for observe in row] for row, expect in zip(observed, expected)] 
+def chi2(data, observed, expected):
+    data = data[[observed, expected]]
+    pearson_residuals = [[(observed - expected) ** 2 / expected
+    for observed in row] for row, expect in zip(observed, expected)] 
     # return sum of squares
     return np.sum(pearson_residuals)
 
@@ -23,9 +24,9 @@ def perm_fun(box, expected, total):
     sum(random.sample(box, total))]
     return chi2([sample_clicks], expected)
 
-def perm_chi(box, ranges):
+def perm_chi(box, expected,total, ranges):
     for _ in range(ranges):
-        perm_chi2 = [perm_fun(box)]
+        perm_chi2 = [perm_fun(box, expected, total)]
     return perm_chi2
 
 #def perm_plot(permdata):
