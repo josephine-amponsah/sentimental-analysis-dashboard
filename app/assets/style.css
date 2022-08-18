@@ -1,0 +1,34 @@
+.nav-card {
+    font-size: 14px;
+    font-weight: bold;
+    height: 100vh;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 15px;
+    margin-top: 0px;
+    color: #e6e8eb;
+    background-color: #071839;
+}
+
+.nav-card .nav-subtext {
+    font-size: 10px;
+    text-align: left;
+    align-content: left;
+}
+
+.nav-col {
+    height: 100%;
+}
+
+.nav-col nav-text {
+    color: #e6e8eb;
+}
+
+.user-bar {
+    font-size: 10px;
+
+}
+
+.dashboard {
+    padding: 10px;
+}
