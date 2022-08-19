@@ -10,7 +10,7 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP]
 
 adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
 revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
-
+salesData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\WebTransactionsCSV.csv',  sep=';', header= 0 )
 app.layout = html.Div([
     dbc.Row([
         dbc.Col( 
@@ -57,7 +57,9 @@ app.layout = html.Div([
                                     end_date_placeholder_text='MMM Do, YY',
                                     start_date= "03 01 19",
                                     calendar_orientation = 'horizontal',
-                                    day_size= 30), 
+                                    day_size= 25,
+                                    style={'fontSize': '10px', }
+                                    ), 
                 html.Div(id = "dash-date-filter-range") ], 
                              className = 'dashboard-date-filter'
                 ),width = 5 ),
@@ -69,8 +71,32 @@ app.layout = html.Div([
             )
             ], justify = 'between', className = 'filter-bar'),
         html.Br(),
-        dbc.Row([
-            html.Div("Graphs")
+        dbc.Row(style = {'height':'20px'}),
+        html.Div([
+            html.Div([
+                html.Div("Analysis Overview"),
+                html.Br(),
+                dbc.Row([
+                    dbc.Col(dbc.Card(
+                        children = [html.Div("title"), html.Div("value", className = 'value'), html.Div("description")],className = 'summary-cards',),
+                            width = 3,),
+                    dbc.Col(dbc.Card(
+                        children = [html.Div("title"), html.Div("value", className = 'value'), html.Div("description")], className = 'summary-cards',),
+                            width = 3),
+                    dbc.Col(dbc.Card(
+                        children = [html.Div("title"), html.Div("value", className = 'value'), html.Div("description")], className = 'summary-cards',),
+                            width = 3),
+                    dbc.Col(dbc.Card(
+                        children = [html.Div("title"), html.Div("value", className = 'value'), html.Div("description")], className = 'summary-cards',),
+                            width = 3),
+                ], justify="evenly")
+            ], className = 'summary-section'),
+            dbc.Row(style = {'height':'20px'}),
+            html.Div([
+                html.Div("graph title"), 
+                html.Br(),
+                dcc.Graph("graph")
+            ], className = 'summary-section')
             ]),
                 ]),
                 className = 'dashboard'
