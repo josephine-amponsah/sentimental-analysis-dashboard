@@ -5,7 +5,7 @@ import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
 
-app = Dash(__name__)
+app = Dash(__name__, use_pages= True)
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 
 adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
@@ -102,6 +102,7 @@ app.layout = html.Div([
                 className = 'dashboard'
                 , width=10)
     ]),
+    dash.page_container
 ])
 
 app.callback()
