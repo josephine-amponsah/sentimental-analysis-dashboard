@@ -4,9 +4,13 @@ from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output
 
-app = Dash(__name__, use_pages= True)
+from app.pages import sales
+
+app = Dash(__name__)
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
+server = app.server
 
 adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
 revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
@@ -20,16 +24,16 @@ app.layout = html.Div([
             html.Div(
                      [
                          "ANALYTICS",
-                     dbc.Row([dbc.NavLink("Plan Campaign",href="http://")], align = 'left'),
-                     dbc.Row([dbc.NavLink("Plan Campaign",href="http://")]),
+                     dbc.Row([dbc.NavLink("Customer Review Analysis",href="http://")], align = 'left'),
+                     dbc.Row([dbc.NavLink("Customer Review Analysis",href="http://")]),
                      ], className =' nav-subtext'),  
             html.Hr(),
             html.Div(
                       [
                           "MENU",
                      dbc.Row([dbc.NavLink("Plan Campaign",href="http://")]),
-                     dbc.Row([dbc.NavLink("Plan Campaign",href="http://")]),
-                     dbc.Row([dbc.NavLink("Plan Campaign",href="http://")]),
+                     dbc.Row([dbc.NavLink("Projections",href="http://")]),
+                     dbc.Row([dbc.NavLink("Customer",href="http://")]),
                      ], className =' nav-subtext'), 
             html.Hr(),
             dbc.Nav(["UTILITIES"], className ='nav-subtext')
@@ -102,10 +106,12 @@ app.layout = html.Div([
                 className = 'dashboard'
                 , width=10)
     ]),
-    dash.page_container
+    # dash.page_container
 ])
 
-app.callback()
+# @app.callback(Output('page-content', 'children'),
+#               [Input('summary-link', 'pathname')])
+# def display_page(pathname):
+#     return sales.layout if pathname == '/pages/sales' else app.layout
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+
