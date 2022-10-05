@@ -6,40 +6,17 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
-from app.pages import sales
+# from app.pages import sales
 
-app = Dash(__name__)
+dash.register_page(__name__, path = "/")
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
-server = app.server
+# server = app.server
 
-adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
-revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
-salesData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\WebTransactionsCSV.csv',  sep=';', header= 0 )
-app.layout = html.Div([
+# adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
+# revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
+# salesData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\WebTransactionsCSV.csv',  sep=';', header= 0 )
+layout = html.Div([
     dbc.Row([
-        dbc.Col( 
-            html.Div([
-            dbc.Nav("LOGO"),
-            html.Br(),
-            html.Div(
-                     [
-                         "ANALYTICS",
-                     dbc.Row([dbc.NavLink("Customer Review Analysis",href="http://")], align = 'left'),
-                     dbc.Row([dbc.NavLink("Customer Review Analysis",href="http://")]),
-                     ], className =' nav-subtext'),  
-            html.Hr(),
-            html.Div(
-                      [
-                          "MENU",
-                     dbc.Row([dbc.NavLink("Plan Campaign",href="http://")]),
-                     dbc.Row([dbc.NavLink("Projections",href="http://")]),
-                     dbc.Row([dbc.NavLink("Customer",href="http://")]),
-                     ], className =' nav-subtext'), 
-            html.Hr(),
-            dbc.Nav(["UTILITIES"], className ='nav-subtext')
-            ], className = 'nav-card '),style={"height":"100%"}, 
-            width = 2
-            ),
         dbc.Col(
                 dbc.Row([
         dbc.Row([
@@ -108,6 +85,7 @@ app.layout = html.Div([
     ]),
     # dash.page_container
 ])
+
 
 # @app.callback(Output('page-content', 'children'),
 #               [Input('summary-link', 'pathname')])
