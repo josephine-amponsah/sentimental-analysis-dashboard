@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 
 # from app.pages import sales
 
-dash.register_page(__name__, path = "/")
+dash.register_page(__name__, path = "/dashboard/overview")
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 # server = app.server
 
