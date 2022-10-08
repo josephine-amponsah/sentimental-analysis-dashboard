@@ -15,6 +15,9 @@ dash.register_page(__name__, path="/dashboard/overview")
 # adsData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\marketingData.csv',  index_col= 0)
 # revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
 # salesData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\WebTransactionsCSV.csv',  sep=';', header= 0 )
+
+cardNames = ["Titles", "Titles", "Titles", "Titles"]
+
 layout = html.Div([
     dbc.Row([
         dbc.Col(
@@ -59,17 +62,9 @@ layout = html.Div([
                             html.Br(),
                             dbc.Row([
                                 dbc.Col(dbc.Card(
-                                    children=[html.Div("title"), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
-                                    width=3,),
-                                dbc.Col(dbc.Card(
-                                    children=[html.Div("title"), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
-                                    width=3),
-                                dbc.Col(dbc.Card(
-                                    children=[html.Div("title"), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
-                                    width=3),
-                                dbc.Col(dbc.Card(
-                                    children=[html.Div("title"), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
-                                    width=3),
+                                    children=[html.Div(title), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
+                                    width=3,)
+                                for title in cardNames
                             ], justify="evenly")
                         ], className='summary-section'),
                         dbc.Row(style={'height': '20px'}),
@@ -80,9 +75,9 @@ layout = html.Div([
                         ], className='summary-section')
                     ]),
                     ]),
-            className='dashboard', width=10)
+            className='dashboard')
     ]),
-    # dash.page_container
+
 ])
 
 
