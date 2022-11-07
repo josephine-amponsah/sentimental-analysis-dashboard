@@ -1,2 +1,6 @@
 .venv/
 modules/__pycache__/
+app/__pycache__
+app/__init__.py
+app/pages/__init__.py
+app/pages/__pycache__

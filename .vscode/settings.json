@@ -15,5 +15,31 @@
         "scipy",
         "seaborn",
         "vlines"
-    ]
+    ],
+    "json.schemas": [],
+    // A glob by which to filter results
+    "relativePath.includeGlob": "/**/*.*",
+    // An array of glob keys to ignore when searching.
+    "relativePath.ignore": [
+        "**/node_modules/**",
+        "**/*.dll",
+        "**/obj/**",
+        "**/objd/**"
+    ],
+    // Excludes the extension from the relative path url (Useful for systemjs imports).
+    "relativePath.removeExtension": false,
+    // An array of extensions to exclude from the relative path url (Useful for used with Webpack or when importing files of mixed types)
+    "relativePath.excludedExtensions": [
+        ".js",
+        ".ts"
+    ],
+    // For performance optimization the default limit for quick filter is 1,000 files.
+    // Extending this may lead to performance issues
+    "relativePath.searchCountLimit": 1000,
+    // Removes the leading ./ character when the path is pointing to a parent folder.
+    "relativePath.removeLeadingDot": true,
+    //  "Omit path parts by matched Regular Expressions
+    "relativePath.omitParts": [
+        "\\/index$"
+    ],
 }
