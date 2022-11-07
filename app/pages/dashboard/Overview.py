@@ -16,63 +16,49 @@ dash.register_page(__name__, path="/dashboard/")
 # revData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\revenueData.csv',  index_col= 0)
 # salesData = pd.read_csv(r'C:\\Users\\HP\\Downloads\\mybooks\\project\\ads-proj\\ad-sales-ml-proj\\data\\WebTransactionsCSV.csv',  sep=';', header= 0 )
 
-cardNames = ["Titles", "Titles", "Titles", "Titles"]
+summaryCard = ["Impressions", "Clicks", "Visits", "Conversions"]
+secondSum = ["CTR", "CR", "ROI"]
 
 layout = html.Div([
     dbc.Row([
         dbc.Row([
-            dbc.Col(html.Div(
-                children=[html.Div("Hi Marketing Manager", style={'fontWeight': 'bold'}), html.Div("Welcome back!")]), width=3),
-            dbc.Col(
-                html.Div([
-                    html.I(className="bi bi-search"),
-                    html.I(className="bi bi-bell-fill"),
-                    html.I(className="bi bi-person-circle"),
-                ], className='icon-bar'), width=3),
-        ], justify='between'),
-        html.Br(),
-        dbc.Row(style={'height': '20px'}),
-        dbc.Row([
-            dbc.Col(html.Div([
-                dcc.DatePickerRange(id="dash-date-filter",
-                                    month_format='MMM Do, YY',
-                                    end_date_placeholder_text='MMM Do, YY',
-                                    start_date="03 01 19",
-                                    calendar_orientation='horizontal',
-                                    day_size=25,
-                                    style={'fontSize': '10px', }
-                                    ),
-                html.Div(id="dash-date-filter-range")],
-                className='dashboard-date-filter'
-            ), width=4),
             dbc.Col([
-                dbc.Button(
-                    "DOWNLOAD",
-                    className='download-button'
-                )], width=2
-            )
-        ], justify='between', className='filter-bar'),
+                  html.Div([
+                      html.I(className="bi bi-search"),
+                      html.I(className="bi bi-bell-fill"),
+                      html.I(className="bi bi-person-circle"),
+                  ], className='icon-bar'),
+                  ],  width=3)
+        ], justify="end"),
         html.Br(),
         dbc.Row(style={'height': '20px'}),
-        html.Div([
-            html.Div([
-                html.Div("Analysis Overview"),
-                html.Br(),
+        html.Br(),
+        dbc.Row([
+            dbc.Col(dbc.Card(
+                children=[html.Div(title), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
+                width=3,)
+            for title in summaryCard
+        ]),
+        html.Br(),
+        dbc.Row(style={'height': '20px'}),
+        html.Br(),
+        dbc.Row([
+            dbc.Col([
                 dbc.Row([
                     dbc.Col(dbc.Card(
                         children=[html.Div(title), html.Div("value", className='value'), html.Div("description")], className='summary-cards',),
-                        width=3,)
-                    for title in cardNames
-                ], justify="evenly")
-            ], className='summary-section'),
-            dbc.Row(style={'height': '20px'}),
-            html.Div([
-                html.Div("graph title"),
-                html.Br(),
-                dcc.Graph("graph")
-            ], className='summary-section')
-        ]),
-    ],),
+                    )
+                    for title in secondSum
+                ]),
+                dbc.Row([
+                    dcc.Graph(id="bar-ads-chart")
+                ])
+            ], width=9),
+            dbc.Col([
+                dbc.Card(children=[html.Div("Charts")])
+            ], width=3)
+        ], style={"height": "100vh"})
+    ], className="dashboard")
 
 
 
