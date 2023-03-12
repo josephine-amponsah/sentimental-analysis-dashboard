@@ -41,7 +41,7 @@ app.layout = html.Div([
                         ]
                     ),
                     html.Hr(),
-                    dbc.Nav(["UTILITIES"], className='nav-subtext')
+
                 ], className='nav-card '), style={"height": "100%"},
                 width=2
             ),
